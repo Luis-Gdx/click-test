@@ -10,18 +10,35 @@ app.controller("mainCtrl", function($scope) {
         $scope.newBtn = {}
     }
     $scope.position = function() {
-        for (var i = 0; i < $scope.btn.length; i++) {
+        /*for (var i = 0; i < $scope.btn.length; i++) {
             $scope.newBtn.x = $("#c" + i).css("left");
             $scope.newBtn.y = $("#c" + i).css("top");
+            $scope.newBtn.id = i;
             $scope.btn[i] = $scope.newBtn;
             $scope.newBtn = {};
-        }
+        }*/
         console.log($scope.btn);
     }
     $scope.calc = function() {
-    	var order = $scope.btn;
-        for (var i = 0; i < order.length; i++) {
-            console.log(order[i].x);
+        for (var i = 0; i < $scope.btn.length; i++) {
+            $scope.newBtn.x = $("#c" + i).css("left");
+            $scope.newBtn.y = $("#c" + i).css("top");
+            $scope.newBtn.id = i;
+            $scope.btn[i] = $scope.newBtn;
+            $scope.newBtn = {};
         }
+        var order = $scope.btn;
+        var aux;
+        for (var i = 0; i < order.length; i++) {
+            for (var j = 0; j < order.length - 1; j++) {
+                if (order[j].x > order[j + 1].x) {
+                    aux = order[j];
+                    order[j] = order[j + 1];
+                    order[j + 1] = aux;
+
+                }
+            }
+        }
+        console.log(order);
     }
 });
