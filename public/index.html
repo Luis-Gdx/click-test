@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Test</title>
+		<link rel="stylesheet" href="css/foundation.css">
+		<link rel="stylesheet" href="css/ionicons.css">
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body ng-controller="mainCtrl">
+		{{nombre}}
+		<button class="button" ng-click="add()">Add</button>
+		<div ng-repeat="button in btn">
+			<div class="row draggable">
+				<i class="ion-arrow-move drag" aria-hidden="true"></i><input type="text" class="small-1 columns" placeholder="c{{button.id}}">
+			</div>
+		</div>
+		<div class="draggable">
+			<i class="ion-arrow-move drag" aria-hidden="true"></i>
+		</div>
+		<script src="js/lib/jquery.js"></script>
+		<script src="js/lib/jquery-ui.js"></script>
+		<script src="js/lib/angular.js"></script>
+		<script src="js/lib/foundation/js/vendor/foundation.js"></script>
+		<script src="js/lib/foundation/js/vendor/what-input.js"></script>
+		<script src="js/lib/foundation/js/app.js"></script>
+		<script src="js/src/app.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

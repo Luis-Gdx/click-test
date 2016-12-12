@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "Click de test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis G",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}

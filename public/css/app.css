@@ -1,0 +1,11 @@
+.drag {
+	cursor: pointer;
+	font-size: 25px;
+	width: 150px;
+	height: 150px;
+	padding: 0.5em;
+}
+.myIcon{
+	float: left;
+}
+#draggable { width: 150px; height: 150px; padding: 0.5em; }
