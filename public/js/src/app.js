@@ -1,4 +1,3 @@
-$( function() {
-	$( ".draggable" ).draggable();
-	$( "#draggable" ).draggable();
-} );
+$(function() {
+	
+});
