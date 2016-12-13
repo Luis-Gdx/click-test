@@ -11,6 +11,7 @@ app.controller("mainCtrl", function($scope, Capacitor) {
             $scope.newBtn.x = $("#c" + i).css("left");
             $scope.newBtn.y = $("#c" + i).css("top");
             $scope.newBtn.id = i;
+            $scope.newBtn.val = $("#c" + i).children('input').val();
             $scope.btn[i] = $scope.newBtn;
             $scope.newBtn = {};
         }
