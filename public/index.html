@@ -8,13 +8,15 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body ng-controller="mainCtrl">
-		{{nombre}}
 		<div class="row">
 			<button class="button" ng-click="add()">Add</button>
 			<button class="button" ng-click="calc()" id="btn">Calc</button>
 		</div>
-		<div ng-repeat="button in btn track by $index">
-		<drag-input></drag-input>
+		<div class="draggable cuadro">
+			
+		</div>
+		<div ng-repeat="button in btn track by $index" style="position: fixed;">
+			<drag-input></drag-input>
 		</div>
 		<script src="js/lib/jquery.js"></script>
 		<script src="js/lib/jquery-ui.js"></script>
@@ -24,6 +26,7 @@
 		<script src="js/lib/foundation/js/app.js"></script>
 		<script src="js/src/app.js"></script>
 		<script src="js/directives.js"></script>
+		<script src="js/services.js"></script>
 		<script src="js/app.js"></script>
 	</body>
 </html>
