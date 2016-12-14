@@ -7,6 +7,12 @@ angular.module("app.lineService", [])
 	this.getAllLine = function() {
 		return this.line;
 	}
+	this.delete = function(id) {
+		this.line = this.line.filter(function(ln) {
+			return ln !== id;
+		});
+		return this.getAllLine();
+	}
 	this.sort = function(array) {
 		var aux;
 		for (var i = 0; i < array.length; i++) {

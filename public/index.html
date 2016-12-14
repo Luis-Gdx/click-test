@@ -2,6 +2,7 @@
 <html lang="es" ng-app="app">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 		<title>Test</title>
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/ionicons.css">
@@ -9,25 +10,24 @@
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body ng-controller="mainCtrl">
-		<div class="row">
+		<div class="row" style="margin-top: 32px;">
 			<div class="small-6 columns">
 				<button class="button" ng-click="add()">Añadir capacitor</button>
 				<button class="button" ng-click="addLine()">Añadir linea verical</button>
-				<button class="button" ng-click="calc()" id="btn">Calc</button>
+				<button class="button" ng-click="calc()" id="btn" data-open="exampleModal1">Calc</button>
 				<div class="row">
 					<div class="small-6 columns">
 						<div ng-repeat="button in btn track by $index" style="display: inline-block;">
 							<div class="draggable" id="c{{$index}}" drag style="z-index: 2">
-								<i class="ion-arrow-move drag" aria-hidden="true" style="vertical-align: middle;"></i>
+								<i class="ion-arrow-move drag" aria-hidden="true" ng-dblclick="deleteInput(button)" style="vertical-align: middle;"></i>
 								<input type="number" class="in" placeholder="c{{$index + 1}}">
 							</div>
 						</div>
 					</div>
 					<div class="small-6 columns">
 						<div ng-repeat="line in lines track by $index" style="display: inline-block;">
-							<!--<script src="js/src/app.js"></script>-->
 							<div id="line{{$index}}" drag style="z-index: 1">
-								<i class="ion-arrow-move" aria-hidden="true" style="cursor: pointer; font-size: 25;"></i>
+								<i class="ion-arrow-move" aria-hidden="true" ng-dblclick="deleteLn(line)" style="cursor: pointer; font-size: 25;"></i>
 								<div class="linea">
 									<div class="paralelo">
 									</div>
@@ -39,11 +39,23 @@
 			</div>
 			<div class="small-6 columns">
 				<div id="cuadro" class="ui-widget-content" style="margin-top: 32px; z-index: 0;">
-					<div id="arriba"></div>
-					<div id="abajo"></div>
+					<div class="draggable" id="v" drag style="z-index: 2">
+						<i class="ion-arrow-move drag" aria-hidden="true" style="vertical-align: middle;"></i>
+						<input type="number" class="in" placeholder="v" ng-model="capacitor.v">
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="reveal" id="exampleModal1" data-reveal>
+			<h1>El resultado es:</h1>
+			<p class="lead">{{resultado}}</p>
+			<button class="close-button" data-close aria-label="Close modal" type="button">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<footer style="text-align: center; margin-top: 128px">
+			Programa para fisica "Capacitores" Por Luis Gerardo Labastida Aguirre y Carlos Enedino Cardenas Gutierrez
+		</footer>
 		<script src="js/lib/jquery.js"></script>
 		<script src="js/lib/jquery-ui.js"></script>
 		<script src="js/lib/angular.js"></script>
