@@ -5,21 +5,42 @@
 		<title>Test</title>
 		<link rel="stylesheet" href="css/foundation.css">
 		<link rel="stylesheet" href="css/ionicons.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
 		<link rel="stylesheet" href="css/app.css">
 	</head>
 	<body ng-controller="mainCtrl">
 		<div class="row">
 			<div class="small-6 columns">
-				<button class="button" ng-click="add()">Add</button>
+				<button class="button" ng-click="add()">Añadir capacitor</button>
+				<button class="button" ng-click="addLine()">Añadir linea verical</button>
 				<button class="button" ng-click="calc()" id="btn">Calc</button>
 				<div class="row">
-					<div ng-repeat="button in btn track by $index" style="display: inline-block;">
-						<drag-input></drag-input>
+					<div class="small-6 columns">
+						<div ng-repeat="button in btn track by $index" style="display: inline-block;">
+							<div class="draggable" id="c{{$index}}" drag style="z-index: 2">
+								<i class="ion-arrow-move drag" aria-hidden="true" style="vertical-align: middle;"></i>
+								<input type="number" class="in" placeholder="c{{$index + 1}}">
+							</div>
+						</div>
+					</div>
+					<div class="small-6 columns">
+						<div ng-repeat="line in lines track by $index" style="display: inline-block;">
+							<!--<script src="js/src/app.js"></script>-->
+							<div id="line{{$index}}" drag style="z-index: 1">
+								<i class="ion-arrow-move" aria-hidden="true" style="cursor: pointer; font-size: 25;"></i>
+								<div class="linea">
+									<div class="paralelo">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="small-6 columns">
-				<div class="draggable cuadro" style="margin-top: 16px; z-index: -1;">
+				<div id="cuadro" class="ui-widget-content" style="margin-top: 32px; z-index: 0;">
+					<div id="arriba"></div>
+					<div id="abajo"></div>
 				</div>
 			</div>
 		</div>
@@ -31,7 +52,8 @@
 		<script src="js/lib/foundation/js/app.js"></script>
 		<script src="js/src/app.js"></script>
 		<script src="js/directives.js"></script>
-		<script src="js/services.js"></script>
+		<script src="js/services/capacitor_service.js"></script>
+		<script src="js/services/line_service.js"></script>
 		<script src="js/app.js"></script>
 	</body>
 </html>
